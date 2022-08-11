@@ -21,13 +21,10 @@ function App() {
       }
     })
     .sort((a, b) => {
-      return a.name < b.name;
-    })
-    .sort((a, b) => {
       if (sortBy === "weight") {
         return a.weight - b.weight;
-      } else if (a.name < b.name) {
-        return -1;
+      } else {
+        return a.name.localeCompare(b.name);
       }
     });
 
