@@ -4,6 +4,23 @@ body {
   font-family: sans-serif;
 }
 
+.pigs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+}
+
+.pig-card {
+  height: 400px;
+  width: auto;
+}
+
+.pig-img {
+  height: 300px;
+  width: 400px;
+}
+
 .App {
   margin: 0% 5% 0% 5%;
   text-align: center;
