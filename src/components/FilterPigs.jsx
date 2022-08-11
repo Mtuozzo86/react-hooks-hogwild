@@ -1,6 +1,7 @@
 import React from "react";
 
-function FilterPigs({onHandleFilter}) {
+function FilterPigs({ onHandleFilter }) {
+  console.log(onHandleFilter)
   
     function handleFilterSelect(e) {
         onHandleFilter(e.target.value)

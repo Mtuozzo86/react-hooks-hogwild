@@ -8,12 +8,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
+  gap: 50px;
 }
 
 .pig-card {
   height: 400px;
   width: auto;
+  border: 2px solid black;
+  padding: 20px;
 }
 
 .pig-img {

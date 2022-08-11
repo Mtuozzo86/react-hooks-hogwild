@@ -10,22 +10,6 @@ function App() {
   const [filterBy, setFilterBy] = useState("All");
   const [sortBy, setSortBy] = useState("name");
 
-  function handleFilter(chosenFilter) {
-    setFilterBy(chosenFilter);
-  }
-
-  function handleSort(option) {
-    setSortBy(option);
-  }
-
-  const sortedByName = [...hogs].sort((a, b) => {
-    if (a.name < b.name) {
-      return -1;
-    }
-  });
-
-  const sortedByWeight = [...hogs].sort((a, b) => a - b);
-
   const displayHogs = hogs
     .filter((pig) => {
       if (filterBy === "All") {
@@ -35,13 +19,23 @@ function App() {
       } else {
         return !pig.greased;
       }
+    })
+    .sort((a, b) => {
+      return a.name < b.name;
+    })
+    .sort((a, b) => {
+      if (sortBy === "weight") {
+        return a.weight - b.weight;
+      } else if (a.name < b.name) {
+        return -1;
+      }
     });
 
   return (
     <div className="App">
       <Nav />
-      <FilterPigs onHandleFilter={handleFilter} />
-      <SortPigs onSort={handleSort} />
+      <FilterPigs onHandleFilter={setFilterBy} />
+      <SortPigs onSort={setSortBy} />
       <Hogs hogs={displayHogs} />
     </div>
   );
